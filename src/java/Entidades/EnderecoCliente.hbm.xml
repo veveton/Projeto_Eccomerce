@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 07/04/2015 21:25:41 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Entidades.EnderecoCliente" table="endereco_cliente" catalog="projeto_modelo_er" optimistic-lock="version">
+        <composite-id name="id" class="Entidades.EnderecoClienteId">
+            <key-property name="cep" type="int">
+                <column name="cep" />
+            </key-property>
+            <key-property name="clienteCodCliente" type="int">
+                <column name="cliente_cod_cliente" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="cliente" class="Entidades.Cliente" update="false" insert="false" fetch="select">
+            <column name="cliente_cod_cliente" not-null="true" />
+        </many-to-one>
+        <property name="cidade" type="string">
+            <column name="Cidade" length="100" not-null="true" />
+        </property>
+        <property name="logradouro" type="string">
+            <column name="Logradouro" length="150" not-null="true" />
+        </property>
+        <property name="numero" type="int">
+            <column name="Numero" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

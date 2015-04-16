@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="projeto_modelo_er"/>
+  <table-filter match-name="venda"/>
+  <table-filter match-name="cliente"/>
+  <table-filter match-name="produto"/>
+  <table-filter match-name="adm"/>
+  <table-filter match-name="produto_venda"/>
+  <table-filter match-name="endereco_cliente"/>
+</hibernate-reverse-engineering>

@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 07/04/2015 21:25:41 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Entidades.Venda" table="venda" catalog="projeto_modelo_er" optimistic-lock="version">
+        <id name="codVenda" type="java.lang.Integer">
+            <column name="cod_venda" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="cliente" class="Entidades.Cliente" fetch="select">
+            <column name="cliente_cod_cliente" not-null="true" />
+        </many-to-one>
+        <property name="statusVenda" type="string">
+            <column name="status_venda" length="100" not-null="true" />
+        </property>
+        <property name="dataVenda" type="date">
+            <column name="data_venda" length="10" not-null="true" />
+        </property>
+        <property name="totalVenda" type="big_decimal">
+            <column name="total_venda" precision="7" not-null="true" />
+        </property>
+        <set name="produtoVendas" table="produto_venda" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="venda_cod_venda" not-null="true" />
+            </key>
+            <one-to-many class="Entidades.ProdutoVenda" />
+        </set>
+    </class>
+</hibernate-mapping>

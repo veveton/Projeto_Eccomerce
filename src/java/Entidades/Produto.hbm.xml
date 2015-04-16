@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 07/04/2015 21:25:41 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Entidades.Produto" table="produto" catalog="projeto_modelo_er" optimistic-lock="version">
+        <id name="codProduto" type="java.lang.Integer">
+            <column name="cod_produto" />
+            <generator class="identity" />
+        </id>
+        <property name="precoProduto" type="long">
+            <column name="preco_produto" precision="10" scale="0" not-null="true" />
+        </property>
+        <property name="precoVenda" type="long">
+            <column name="preco_venda" precision="10" scale="0" not-null="true" />
+        </property>
+        <property name="statusProduto" type="string">
+            <column name="status_produto" length="100" not-null="true" />
+        </property>
+        <property name="nomeProduto" type="string">
+            <column name="nome_produto" length="100" not-null="true" />
+        </property>
+        <property name="qtdProduto" type="int">
+            <column name="qtd_produto" not-null="true" />
+        </property>
+        <set name="produtoVendas" table="produto_venda" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="produto_cod_produto" not-null="true" />
+            </key>
+            <one-to-many class="Entidades.ProdutoVenda" />
+        </set>
+    </class>
+</hibernate-mapping>

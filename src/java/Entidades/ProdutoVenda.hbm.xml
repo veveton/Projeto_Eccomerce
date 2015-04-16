@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 07/04/2015 21:25:41 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Entidades.ProdutoVenda" table="produto_venda" catalog="projeto_modelo_er" optimistic-lock="version">
+        <composite-id name="id" class="Entidades.ProdutoVendaId">
+            <key-property name="prodCodigo" type="int">
+                <column name="prod_codigo" />
+            </key-property>
+            <key-property name="produtoCodProduto" type="int">
+                <column name="produto_cod_produto" />
+            </key-property>
+            <key-property name="vendaCodVenda" type="int">
+                <column name="venda_cod_venda" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="produto" class="Entidades.Produto" update="false" insert="false" fetch="select">
+            <column name="produto_cod_produto" not-null="true" />
+        </many-to-one>
+        <many-to-one name="venda" class="Entidades.Venda" update="false" insert="false" fetch="select">
+            <column name="venda_cod_venda" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

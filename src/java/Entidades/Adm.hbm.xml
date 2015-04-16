@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 07/04/2015 21:25:41 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Entidades.Adm" table="adm" catalog="projeto_modelo_er" optimistic-lock="version">
+        <id name="idAdm" type="java.lang.Integer">
+            <column name="id_adm" />
+            <generator class="identity" />
+        </id>
+        <property name="usuarioAdm" type="string">
+            <column name="usuario_adm" length="100" not-null="true" />
+        </property>
+        <property name="senhaAdm" type="string">
+            <column name="senha_adm" length="100" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
